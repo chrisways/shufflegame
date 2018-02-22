@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Shuffle Word</title>
+		<meta charset="utf-8">
+<meta name="viewport" content="width=device-width , initail-scale=1" >
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<script type="text/javascript" src="js/jquery-1.8.2.js"></script>
+<script type="text/javascript" src="js/bootstrap.js"></script>
+<script type="text/javascript">
+var secsHand = 0 , score = 0 ;
+var footballwords = ["soccer","goal","kick","refree","penalty","offside","cornerkick","football","foul","dribble"] ;
+	var nof , tid , originalword , control ;
+	function countDown()
+	{
+			nof = 3 ; //this determines the number of minutes in our application 
+			engine() ;		
+	}
+	function stopCountDown()
+	{
+		document.getElementById("control2").disabled  = true ;
+		document.getElementById("control").value  = "Begin" ;
+		nof = "" ;
+		secsHand = 0 ;
+
+	}
+	function engine()
+	{
+		secsHand-- ;
+		if(secsHand == -1)
+		{
+			secsHand = 59 ;
+			nof-- ;
+			if(nof == -1)
+			{
+				nof = 0 ;
+				secsHand = 0 ;
+				document.getElementById('displayTime').value = 0 + " : " + 0 ;
+				control = false ;
+				alert("Your time is Up, Game OVer") ;
+				return ;
+			}
+		}
+		document.getElementById('displayTime').value = nof + " : " + secsHand ;
+		tid = window.setTimeout("engine()",1000) ;
+	}
+	function shuffle(word)
+	{
+		originalword = word ;
+		var wordArray = word.split("");
+		var wordLength = word.length ;
+		var shuffledWord = "" ;
+		for (var i = 0; i < wordLength ; i++) 
+		{
+			var rand = Math.floor(Math.random() * wordLength)  ;
+			//rand = 3
+			//alert(rand + " " + i + " " + wordArray[rand]) ;
+			if(wordArray[rand] != "")
+			{
+				shuffledWord += wordArray[rand] ;
+				wordArray[rand] = "" ;
+			}
+			else
+			{
+				i-- ;
+			}
+		}
+	document.getElementById("oword").value = shuffledWord ;
+	}
+	function begin()
+	{
+		//with the assumption math.random returns 5
+		index = Math.floor(Math.random() * footballwords.length) ;
+		shuffle(footballwords[index]) ;
+		
+		countDown() ;
+	} 
+	function computeAns()
+	{
+		if(control == false)
+		{
+			alert("The game is over") ;
+			return ;
+		}
+		var x="";
+	
+	
+		var ans = document.getElementById("sword").value ;
+
+		if(ans == originalword)
+		{
+			score+=10;
+			
+			switch(score)
+			{
+				case 10:
+				var b = "<div class='progress' style=width:100%'>";	
+          b += "<div class='progress-bar progress-bar-info' role='progress-bar' aria-valuenow='10' style='width:10px'>10% complete";
+          	 b+= "<div>" ;   
+        b += "</div>" ;
+        //alert(a) ;
+     	document.getElementById("check").innerHTML = b;
+     	break;
+     		case 20:
+     		var b = "<div class='progress'>";	
+          b += "<div class='progress-bar progress-bar-danger' role='progress-bar' aria-valuenow='20' style='width:20px'>20% complete";
+          	 b += "<div>" ;   
+        b += "</div>" ;
+        //alert(a) ;
+     	document.getElementById("check").innerHTML = b;
+     	break;
+     	case 30:
+     		var b = "<div class='progress'>";	
+          b += "<div class='progress-bar progress-bar-info' role='progress-bar' aria-valuenow='30' style='width:30px'>30% complete";
+          	 b += "<div>" ;   
+        b += "</div>" ;
+        //alert(a) ;
+     	document.getElementById("check").innerHTML = b;
+     	break;
+     	case 40:
+     		var b = "<div class='progress'>";	
+          b += "<div class='progress-bar progress-bar-info' role='progress-bar' aria-valuenow='40' style='width:40px'>40% complete";
+          	 b += "<div>" ;   
+        b += "</div>" ;
+        //alert(a) ;
+     	document.getElementById("check").innerHTML = b;
+     	break;
+     	case 50:
+     		var b = "<div class='progress'>";	
+          b += "<div class='progress-bar progress-bar-info' role='progress-bar' aria-valuenow='50' style='width:50px'>50% complete";
+          	 b += "<div>" ;   
+        b += "</div>" ;
+        //alert(a) ;
+     	document.getElementById("check").innerHTML = b;
+     	break;
+     	case 60:
+     		var b = "<div class='progress'>";	
+          b += "<div class='progress-bar progress-bar-info' role='progress-bar' aria-valuenow='60' style='width:60px'> 60% complete";
+          	 b += "<div>" ;   
+        b += "</div>" ;
+        //alert(a) ;
+     	document.getElementById("check").innerHTML = b;
+     	break;
+     	case 70:
+     		var b = "<div class='progress'>";	
+          b += "<div class='progress-bar progress-bar-info' role='progress-bar' aria-valuenow='70' style='width:70px'>70% complete";
+          	 b += "<div>" ;   
+        b += "</div>" ;
+        //alert(a) ;
+     	document.getElementById("check").innerHTML = b;
+     	break;
+     	case 80:
+     		var b = "<div class='progress'>";	
+          b += "<div class='progress-bar progress-bar-info' role='progress-bar' aria-valuenow='80' style='width:80px'> 80% complete";
+          	 b += "<div>" ;   
+        b += "</div>" ;
+        //alert(a) ;
+     	document.getElementById("check").innerHTML = b;
+     	break;
+     	case 90:
+     		var b = "<div class='progress'>";	
+          b += "<div class='progress-bar progress-bar-info' role='progress-bar' aria-valuenow='90' style='width:90px'> 90% complete";
+          	 b += "<div>" ;   
+        b += "</div>" ;
+        //alert(a) ;
+     	document.getElementById("check").innerHTML = b;
+     	break;
+     	
+    	case 100:
+     		var b = "<div class='progress'>";	
+          b += "<div class='progress-bar progress-bar-info' role='progress-bar' aria-valuenow='100' style='width:100px'>100% complete";
+          	 b += "<div>" ;   
+        b += "</div>" ;
+        //alert(a) ;
+     	document.getElementById("check").innerHTML = b;
+     	break;
+			}
+		}
+		else
+		{
+			alert("You got it wrong, the correct answer is " + originalword ) ;
+		}
+		document.getElementById("sword").value = "" ;
+		if(footballwords.length == 0)
+		{
+			control = false ;
+			alert("Your score is "+score);
+			alert("The game is over") ;
+			return ;
+		}
+		index = Math.floor(Math.random() * footballwords.length) ;
+		shuffle(footballwords[index]) ;
+		footballwords.splice(index,1) ;
+
+
+	}
+</script>
+</head>
+<body>
+<div class="container">
+<div class="row">
+
+	<div class="col-md-4">
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				<h1>Shuffle Word</h1>
+			</div>
+			<div class="panel-body">
+				<div class="form-group">
+					<div class="form-group">
+						<input type="button" id="control" class="btn btn-primary" value="START" onclick="begin()" name="">
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control" name="" id="oword" placeholder="shuffled word here">
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control" name="" id="sword" placeholder="answer here">
+					</div>
+					</div>
+					<div class="form-group">
+						<input type="button" id="control" class="btn btn-danger" value="Submit" onclick="computeAns()" name="">
+					</div>
+				</div>
+				<div class="panel-footer" style="background-color:#337ab7">
+					<div class="row">
+						<div class="col-md-6 col-sm-6 col-xs-6">
+							<div class="form-group">
+								<input type="text" readonly="readonly" id="displayTime" class="form-control" name="">
+							</div>
+							<div id="check">
+							</div>
+						</div>
+						
+					</div>
+					
+				</div>
+			</div>
+			
+		</div>
+		
+	</div>
+</div>
+</div>
+</body>
+</html>
