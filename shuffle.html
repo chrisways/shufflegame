@@ -3,7 +3,7 @@
 <head>
 	<title>Shuffle Word</title>
 		<meta charset="utf-8">
-<meta name="viewport" content="width=device-width , initail-scale=1" >
+<meta name="viewport" content="width=device-width , initial-scale=1" >
 <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 <script type="text/javascript" src="js/jquery-1.8.2.js"></script>
 <script type="text/javascript" src="js/bootstrap.js"></script>
@@ -11,6 +11,7 @@
 var secsHand = 0 , score = 0 ;
 var footballwords = ["soccer","goal","kick","referee","penalty","offside","cornerkick","football","foul","dribble"] ;
 	var nof , tid , originalword , control ;
+	
 	function countDown()
 	{
 			nof = 3 ; //this determines the number of minutes in our application 
@@ -180,7 +181,7 @@ var footballwords = ["soccer","goal","kick","referee","penalty","offside","corne
 		}
 		else
 		{
-			alert("You got it wrong, the correct answer is " + originalword ) ;
+			alert("Wrong Answer, the correct answer is " + originalword ) ;
 		}
 		document.getElementById("sword").value = "" ;
 		if(footballwords.length == 0)
@@ -196,6 +197,12 @@ var footballwords = ["soccer","goal","kick","referee","penalty","offside","corne
 
 
 	}
+
+
+	function startOver() {
+	location.reload();
+
+  }
 	function disp()
 	{  var d=$("#dis").val();
 	if(d!="")
@@ -205,6 +212,7 @@ var footballwords = ["soccer","goal","kick","referee","penalty","offside","corne
 		$("strong").html(d);
 	}
 		else{alert("Enter your name first");}
+
 	}
 </script>
 </head>
@@ -231,7 +239,10 @@ var footballwords = ["soccer","goal","kick","referee","penalty","offside","corne
 					</div>
 					</div>
 					<div class="form-group">
-						<input type="button" id="control" class="btn btn-danger" value="Submit" onclick="computeAns()" name="" style="box-shadow: 0px 0px 11px grey">
+						<input type="button" id="control" class="btn btn-danger" value="Submit" onclick="computeAns()" name="">
+						<input type="button" id="control" class="btn btn-warning" value="Start Over" onclick="startOver()" name="">
+						<!-- start again button added by Pressemman -->
+
 					</div>
 				</div>
 				<div class="panel-footer" style="background-color:#337ab7">
