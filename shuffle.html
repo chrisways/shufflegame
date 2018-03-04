@@ -215,14 +215,26 @@ var footballwords = ["soccer","goal","kick","referee","penalty","offside","corne
 
 	}
 </script>
+	<style type="text/css">
+	div#background {
+		width: 100%; 
+		height: 800px;
+   		background-image: url("shuffle2.png");
+   		background-repeat: no-repeat;
+		background-size: cover;
+		 background-position: right bottom, left top;
+	}			
+
+</style>
 </head>
 <body>
-<div class="container">
+<div id="background">
+	<div class="container">
 <div class="row" style="display:none" id="ro">
 
 	<div class="col-md-4">
-		<div class="panel panel-primary">
-			<div class="panel-heading">
+		<div >
+			<div align="center">
 				<h1>Shuffle Word</h1>				
 			</div>
 			<div class="panel-body">
@@ -245,7 +257,7 @@ var footballwords = ["soccer","goal","kick","referee","penalty","offside","corne
 
 					</div>
 				</div>
-				<div class="panel-footer" style="background-color:#337ab7">
+				<div>
 					<div class="row">
 						<div class="col-md-6 col-sm-6 col-xs-6">
 							<div class="form-group">
@@ -272,5 +284,6 @@ var footballwords = ["soccer","goal","kick","referee","penalty","offside","corne
 	</audio>
 </div>
 </div><div></div>
+</div>
 </body>
 </html>
