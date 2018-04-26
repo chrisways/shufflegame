@@ -94,7 +94,7 @@ var footballwords = ["soccer","goal","kick","referee","penalty","offside","corne
 		if(control == false)
 		{
 			timeover.play();
-			alert("The game is over") ;
+			alert("The game is over");
 			return ;
 		}
 		var x="";
@@ -210,6 +210,7 @@ var footballwords = ["soccer","goal","kick","referee","penalty","offside","corne
 		index = Math.floor(Math.random() * footballwords.length) ;
 		shuffle(footballwords[index]) ;
 		footballwords.splice(index,1) ;
+		sword.focus();
 
 	}
 
@@ -226,6 +227,7 @@ var footballwords = ["soccer","goal","kick","referee","penalty","offside","corne
 		$("#ro").show();
 		$("#col").hide();
 		$("strong").html(d);
+		sword.focus();
 	}
 		else{alert("Enter your name first");}
 		click.play();
