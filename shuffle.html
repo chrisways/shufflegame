@@ -3,14 +3,22 @@
 <head>
 	<title>Shuffle Word</title>
 		<meta charset="utf-8">
-<meta name="viewport" content="width=device-width , initail-scale=1" >
+<meta name="viewport" content="width=device-width , initial-scale=1" >
 <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 <script type="text/javascript" src="js/jquery-1.8.2.js"></script>
 <script type="text/javascript" src="js/bootstrap.js"></script>
 <script type="text/javascript">
+	var startGm = new Audio("sound/gamestart.mp3");
+var miss = new Audio("sound/miss.mp3");
+var click = new Audio("sound/click.mp3");
+var correct1 = new Audio("sound/correct1.mp3");
+var correct2 = new Audio("sound/correct2.mp3");
+var correct3 = new Audio("sound/correct3.mp3");
+var timeover = new Audio("sound/timeover.mp3");
 var secsHand = 0 , score = 0 ;
 var footballwords = ["soccer","goal","kick","referee","penalty","offside","cornerkick","football","foul","dribble"] ;
 	var nof , tid , originalword , control ;
+	
 	function countDown()
 	{
 			nof = 3 ; //this determines the number of minutes in our application 
@@ -37,6 +45,7 @@ var footballwords = ["soccer","goal","kick","referee","penalty","offside","corne
 				secsHand = 0 ;
 				document.getElementById('displayTime').value = 0 + " : " + 0 ;
 				control = false ;
+				timeover.play();
 
 				alert("Your time is totally over and over and over, Game OVer") ;
 
@@ -76,12 +85,16 @@ var footballwords = ["soccer","goal","kick","referee","penalty","offside","corne
 		shuffle(footballwords[index]) ;
 		
 		countDown() ;
+		startGm.play();
+		click.play();
 	} 
 	function computeAns()
 	{
+		click.play();
 		if(control == false)
 		{
-			alert("The game is over") ;
+			timeover.play();
+			alert("The game is over");
 			return ;
 		}
 		var x="";
@@ -91,6 +104,7 @@ var footballwords = ["soccer","goal","kick","referee","penalty","offside","corne
 
 		if(ans == originalword)
 		{
+			correct1.play();
 			score+=10;
 			
 			switch(score)
@@ -180,22 +194,32 @@ var footballwords = ["soccer","goal","kick","referee","penalty","offside","corne
 		}
 		else
 		{
-			alert("You got it wrong, the correct answer is " + originalword ) ;
+			miss.play();
+			alert("Wrong Answer, the correct answer is " + originalword ) ;
 		}
 		document.getElementById("sword").value = "" ;
 		if(footballwords.length == 0)
 		{
 			control = false ;
-			alert("Your score is "+score);
+			if (score>=50) {correct3.play(); alert("Your score is "+score);}
+			else{alert("Your score is "+score); timeover.play();
 			alert("The game is over") ;
-			return ;
+			return ;}
+			
 		}
 		index = Math.floor(Math.random() * footballwords.length) ;
 		shuffle(footballwords[index]) ;
 		footballwords.splice(index,1) ;
-
+		sword.focus();
 
 	}
+
+
+	function startOver() {
+		click.play();
+	location.reload();
+
+  }
 	function disp()
 	{  var d=$("#dis").val();
 	if(d!="")
@@ -203,18 +227,33 @@ var footballwords = ["soccer","goal","kick","referee","penalty","offside","corne
 		$("#ro").show();
 		$("#col").hide();
 		$("strong").html(d);
+		sword.focus();
 	}
 		else{alert("Enter your name first");}
+		click.play();
+
 	}
 </script>
+	<style type="text/css">
+	div#background {
+		width: 100%; 
+		height: 800px;
+   		background-image: url("shuffle2.png");
+   		background-repeat: no-repeat;
+		background-size: cover;
+		 background-position: right bottom, left top;
+	}			
+
+</style>
 </head>
 <body>
-<div class="container">
+<div id="background">
+	<div class="container">
 <div class="row" style="display:none" id="ro">
 
 	<div class="col-md-4">
-		<div class="panel panel-primary">
-			<div class="panel-heading">
+		<div >
+			<div align="center">
 				<h1>Shuffle Word</h1>				
 			</div>
 			<div class="panel-body">
@@ -231,10 +270,13 @@ var footballwords = ["soccer","goal","kick","referee","penalty","offside","corne
 					</div>
 					</div>
 					<div class="form-group">
-						<input type="button" id="control" class="btn btn-danger" value="Submit" onclick="computeAns()" name="" style="box-shadow: 0px 0px 11px grey">
+						<input type="button" id="control" class="btn btn-danger" value="Submit" onclick="computeAns()" name="">
+						<input type="button" id="control" class="btn btn-warning" value="Start Over" onclick="startOver()" name="">
+						<!-- start again button added by Pressemman -->
+
 					</div>
 				</div>
-				<div class="panel-footer" style="background-color:#337ab7">
+				<div>
 					<div class="row">
 						<div class="col-md-6 col-sm-6 col-xs-6">
 							<div class="form-group">
@@ -250,22 +292,17 @@ var footballwords = ["soccer","goal","kick","referee","penalty","offside","corne
 			</div>
 			
 		</div>
-		
 	</div>
-	<div class="col-1" id="col">
+	<div class="col-md-6" id="col">
 		<br><br><br><br>
-		<input type="text" name="" placeholder="enter you name here first" id="dis" class="form-control">
+		<input type="text" name="" placeholder="enter you name here first" id="v" class="form-control"><br>
 		<button onclick="disp()" class="btn btn-primary">Submit</button>
 	</div>
+	<audio autoplay="autoplay">
+		<source src="sound/shuffleaud.mp3" type="audio/mp3">
+	</audio>
 </div>
+</div><div></div>
 </div>
-
-<div>
-	my name is oyelowo
-</div>
-	
-	<div>
-	this is a new div on the master branch and not the 'new' branch
-	</div>
 </body>
 </html>
