@@ -51,9 +51,10 @@ var politics = ["candidate","vote","senate","party","ballot box","manifesto","ca
 				control = false ;
 				timeover.play();
 
-				alert("Your time is totally over and over and over, Game over") ;
+				// alert("Your time is totally over and over and over, Game over") ;
 
-				return ;
+				// return ;
+				startOver();
 			}
 		}
 		document.getElementById('displayTime').value = nof + " : " + secsHand ;
@@ -94,13 +95,7 @@ var politics = ["candidate","vote","senate","party","ballot box","manifesto","ca
 	} 
 	function computeAns()
 	{
-		click.play();
-		if(control == false)
-		{
-			timeover.play();
-			alert("The game is over");
-			return ;
-		}
+		click.play();		
 		var x="";
 	
 	
@@ -205,10 +200,18 @@ var politics = ["candidate","vote","senate","party","ballot box","manifesto","ca
 		if(selectedInterestArray.length == 0)
 		{
 			control = false ;
-			if (score>=50) {correct3.play(); alert("Your score is "+score);}
-			else{alert("Your score is "+score); timeover.play();
-			alert("The game is over") ;
-			return ;}
+			if (score>=50) 
+			{
+				correct3.play(); alert("Your score is "+score);
+				startOver();
+			}
+			else
+			{
+				alert("Your score is "+score); timeover.play();
+				// alert("The game is over") ;
+				// return ;
+				startOver();
+			}
 			
 		}
 		index = Math.floor(Math.random() * selectedInterestArray.length) ;
