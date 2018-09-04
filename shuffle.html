@@ -8,6 +8,7 @@
 <script type="text/javascript" src="js/jquery-1.8.2.js"></script>
 <script type="text/javascript" src="js/bootstrap.js"></script>
 <script type="text/javascript">
+	var gameMusic= new Audio("sound/shuffleaud.mp3");
 	var startGm = new Audio("sound/gamestart.mp3");
 var miss = new Audio("sound/miss.mp3");
 var click = new Audio("sound/click.mp3");
@@ -233,6 +234,7 @@ var footballwords = ["soccer","goal","kick","referee","penalty","offside","corne
 		click.play();
 
 	}
+
 </script>
 	<style type="text/css">
 	div#background {
@@ -246,7 +248,7 @@ var footballwords = ["soccer","goal","kick","referee","penalty","offside","corne
 
 </style>
 </head>
-<body>
+<body onload="gameMusic.play()">
 <div id="background">
 	<div class="container">
 <div class="row" style="display:none" id="ro">
