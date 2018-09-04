@@ -8,6 +8,7 @@
 <script type="text/javascript" src="js/jquery-1.8.2.js"></script>
 <script type="text/javascript" src="js/bootstrap.js"></script>
 <script type="text/javascript">
+	var selectedOption = '';
 	var gameMusic= new Audio("sound/shuffleaud.mp3");
 	var startGm = new Audio("sound/gamestart.mp3");
 var miss = new Audio("sound/miss.mp3");
@@ -17,8 +18,10 @@ var correct2 = new Audio("sound/correct2.mp3");
 var correct3 = new Audio("sound/correct3.mp3");
 var timeover = new Audio("sound/timeover.mp3");
 var secsHand = 0 , score = 0 ;
-var footballwords = ["soccer","goal","kick","referee","penalty","offside","cornerkick","football","foul","dribble","freekick"] ;
+	var selectedInterestArray = [];
+var soccer = ["soccer","goal","kick","referee","penalty","offside","cornerkick","football","foul","dribble","freekick"] ;
 	var nof , tid , originalword , control ;
+var politics = ["candidate","vote","senate","party","ballot box","manifesto","campaign","election","voters card","honorable","position","form"];
 	
 	function countDown()
 	{
@@ -82,8 +85,8 @@ var footballwords = ["soccer","goal","kick","referee","penalty","offside","corne
 	function begin()
 	{
 		//with the assumption math.random returns 5
-		index = Math.floor(Math.random() * footballwords.length) ;
-		shuffle(footballwords[index]) ;
+		index = Math.floor(Math.random() * selectedInterestArray.length) ;
+		shuffle(selectedInterestArray[index]) ;
 		
 		countDown() ;
 		startGm.play();
@@ -199,7 +202,7 @@ var footballwords = ["soccer","goal","kick","referee","penalty","offside","corne
 			alert("Wrong Answer, the correct answer is " + originalword ) ;
 		}
 		document.getElementById("sword").value = "" ;
-		if(footballwords.length == 0)
+		if(selectedInterestArray.length == 0)
 		{
 			control = false ;
 			if (score>=50) {correct3.play(); alert("Your score is "+score);}
@@ -208,9 +211,9 @@ var footballwords = ["soccer","goal","kick","referee","penalty","offside","corne
 			return ;}
 			
 		}
-		index = Math.floor(Math.random() * footballwords.length) ;
-		shuffle(footballwords[index]) ;
-		footballwords.splice(index,1) ;
+		index = Math.floor(Math.random() * selectedInterestArray.length) ;
+		shuffle(selectedInterestArray[index]) ;
+		selectedInterestArray.splice(index,1) ;
 		sword.focus();
 
 	}
@@ -222,7 +225,18 @@ var footballwords = ["soccer","goal","kick","referee","penalty","offside","corne
 
   }
 	function disp()
-	{  var d=$("#dis").val();
+	{  
+		var d=$("#v").val();
+		var selectedOption = f1.interest.value;
+		
+		if(selectedOption == 'soccer')
+			{
+				selectedInterestArray = soccer;
+			}
+		else if(selectedOption == 'politics')
+			{
+				selectedInterestArray = politics;
+			}
 	if(d!="")
 	{
 		$("#ro").show();
@@ -230,7 +244,8 @@ var footballwords = ["soccer","goal","kick","referee","penalty","offside","corne
 		$("strong").html(d);
 		sword.focus();
 	}
-		else{alert("Enter your name first");}
+		else{
+			alert("Enter your name first");}
 		click.play();
 
 	}
@@ -283,7 +298,7 @@ var footballwords = ["soccer","goal","kick","referee","penalty","offside","corne
 						<div class="col-md-6 col-sm-6 col-xs-6">
 							<div class="form-group">
 
-								<input type="text" readonly="readonly" id="displayTime" class="form-control" name="">
+								<input type="text" readonly id="displayTime" class="form-control" name="">
 							</div>
 							<div id="check">
 							</div>
@@ -296,12 +311,17 @@ var footballwords = ["soccer","goal","kick","referee","penalty","offside","corne
 			
 		</div>
 	</div>
+	<form name="f1" action="#" onSubmit="javasript: return false">
 	<div class="col-md-6" id="col">
-		<br><br><br><br>
+		<br><br><br>
+		Select an area of interest: <input type="radio" name="interest" value="soccer" id="interest" checked  />Soccer <input type="radio" name="interest" id="interest" value="politics">Politics
+		<br>
+		
 		<input type="text" name="" placeholder="enter you name here first" id="v" class="form-control"><br>
 		<button onclick="disp()" class="btn btn-primary">Submit</button>
 	</div>
-	<audio autoplay="autoplay">
+		</form>
+	<audio autoplay>
 		<source src="sound/shuffleaud.mp3" type="audio/mp3">
 	</audio>
 </div>
