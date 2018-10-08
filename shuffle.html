@@ -239,9 +239,10 @@ var politics = ["candidate","vote","senate","party","ballot box","manifesto","ca
 			}
 	if(d!="")
 	{
-		$("#ro").show();
+		$("#ro").slideToggle();
 		$("#col").hide();
 		$("strong").html(d);
+		begin();
 		sword.focus();
 	}
 		else{
@@ -277,7 +278,7 @@ var politics = ["candidate","vote","senate","party","ballot box","manifesto","ca
 				<div class="form-group">
 					<div class="form-group">
 						<strong style="color:"></strong><br>
-						<input type="button" id="control" class="btn btn-primary" value="START" onclick="begin()" name="">
+<!--						<input type="button" id="control" class="btn btn-primary" value="START" onclick="begin()" name="">-->
 					</div>
 					<div class="form-group">
 						<input type="text" class="form-control" name="" id="oword" placeholder="shuffled word here">
@@ -314,7 +315,7 @@ var politics = ["candidate","vote","senate","party","ballot box","manifesto","ca
 	<form name="f1" action="#" onSubmit="javasript: return false">
 	<div class="col-md-6" id="col">
 		<br><br><br>
-		Select an area of interest: <input type="radio" name="interest" value="soccer" id="interest" checked  />Soccer <input type="radio" name="interest" id="interest" value="politics">Politics
+		Select an area of interest: <input type="radio" name="interest" value="soccer" id="interest" checked  />Soccer <input type="radio" name="interest" id="interest" value="politics">Politics <input type="radio" />Ogbomoso <input type="radio" />Physics<input type="radio" />Biology
 		<br>
 		
 		<input type="text" name="" placeholder="enter you name here first" id="v" class="form-control"><br>
