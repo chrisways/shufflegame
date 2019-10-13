@@ -327,27 +327,29 @@ var medicine = ["abdominal", "abdominoplasty", "stomach", "abdominocentesis", "a
 					<div class="form-group">
 						<strong style="color:"></strong><br>
 <!--						<input type="button" id="control" class="btn btn-primary" value="START" onclick="begin()" name="">-->
+							<!-- btn and input for the "answer here" and the "shuffled Word here" redesigned by SUPA (samuel adegbola) git assignment -->
 					</div>
 					<div class="form-group">
-						<input type="text" class="form-control" name="" id="oword" placeholder="shuffled word here">
+						<input type="text" class="form-control" name="" id="oword" placeholder="shuffled word here" style="background-color: #3D823D; border: none; color: white; font-family: comic sans ms;">
 					</div>
 					<div class="form-group">
-						<input type="text" class="form-control" name="" id="sword" placeholder="answer here">
+						<input type="text" class="form-control" name="" id="sword" placeholder="answer here" style="background-color: #9CEF9C; border: none; color: white; font-family: comic sans ms;">
 					</div>
 					</div>
 					<div class="form-group">
-						<input type="button" id="control" class="btn btn-danger" value="Submit" onclick="computeAns()" name="">
-						<input type="button" id="control" class="btn btn-warning" value="Start Over" onclick="startOver()" name="">
+						<input type="button" id="control" class="btn btn-danger" value="Submit" onclick="computeAns()" name="" style="border-radius: 20%; width: 150px; height: 50px; outline: none">
+						<input type="button" id="control" class="btn btn-warning" value="Start Over" onclick="startOver()" name="" style="border-radius: 20%; width: 150px; height: 50px; outline: none">
 						<!-- start again button added by Pressemman -->
 
 					</div>
 				</div>
 				<div>
+					<!-- time display also redesigned by SUPA git assignment -->
 					<div class="row">
 						<div class="col-md-6 col-sm-6 col-xs-6">
 							<div class="form-group">
 
-								<input type="text" readonly id="displayTime" class="form-control" name="">
+								<input type="text" readonly id="displayTime" class="form-control" name="" style="background-color: #99E5EC; color: black; font-family: impact; border: none;">
 							</div>
 							<div id="check">
 							</div>
@@ -360,33 +362,34 @@ var medicine = ["abdominal", "abdominoplasty", "stomach", "abdominocentesis", "a
 			
 		</div>
 	</div>
+	<!-- front page redesigned by supa git assignment -->
 	<form name="f1" action="#" onSubmit="javasript: return false">
 	<div class="col-md-6" id="col">
 		<br><br><br>
-		Select an area of interest: 
-		<input type="radio" name="interest" value="soccer" id="interest" checked  />Soccer 
-		<input type="radio" name="interest" id="interest" value="politics">Politics 
+		<marquee behavior="" direction=""><h1 style="font-family: elephant; color: black;">Select an area of interest:</h1></marquee>
+		<input type="radio" name="interest" value="soccer" id="interest" checked   /><b style="font-family: arial black; color:black; font-size: 18px">Soccer</b> 
+		<input type="radio" name="interest" id="interest" value="politics"><b style="font-family: arial black; color:black; font-size: 18px">Politics</b> 
 
-		<input type="radio" name="interest" value="education" />Education 
+		<input type="radio" name="interest" value="education" /><b style="font-family: arial black; color:black; font-size: 18px ">Education</b> 
 
-		<input type="radio" name="interest" value="physics" />Physics
+		<input type="radio" name="interest" value="physics" /><b style="font-family: arial black; color:black; font-size: 18px">Physics</b>
 
-		<input type="radio" name="interest" value="medicine" />Medicine
+		<input type="radio" name="interest" value="medicine" /><b style="font-family: arial black; color:black; font-size: 18px">Medicine</b>
 
-		<input type="radio" name="interest" value="biology">Biology 
+		<input type="radio" name="interest" value="biology"><b style="font-family: arial black; color:black; font-size: 18px">Biology</b> 
 
-		<input type="radio" name="interest" value="chemistry">Chemistry
+		<input type="radio" name="interest" value="chemistry"><b style="font-family: arial black; color:black; font-size: 18px">Chemistry</b>
 
-		<input type="radio" name="interest" value="geography">Geography
+		<input type="radio" name="interest" value="geography"><b style="font-family: arial black; color:black; font-size: 18px">Geography</b>
 
-		<input type="radio" name="interest" value="law">Law
+		<input type="radio" name="interest" value="law"><b style="font-family: arial black; color:black; font-size: 18px">Law</b>
 
-		<input type="radio" name="interest" value="economics">Economics
+		<input type="radio" name="interest" value="economics"><b style="font-family: arial black; color:black; font-size: 18px">Economics</b>
 		<br>
 		
-		<input type="text" name="" placeholder="enter you name here first" id="v" class="form-control"><br>
+		<input type="text" name="" placeholder="enter you name here first" id="v" class="form-control" style="background-color: transparent; border: 2px solid white; color: white; font-family: comic sans ms;"><br>
 
-		<button onclick="disp()" class="btn btn-primary">Submit</button>
+		<button onclick="disp()" class="btn btn-primary" style="border-radius: 30%; width: 150px; height: 50px; outline:none;">Submit</button>
 	</div>
 		</form>
 	<audio autoplay>
