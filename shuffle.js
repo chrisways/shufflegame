@@ -1,6 +1,6 @@
-	var selectedOption = '';
-	var gameMusic= new Audio("sound/shuffleaud.mp3");
-	var startGm = new Audio("sound/gamestart.mp3");
+var selectedOption = '';
+var gameMusic= new Audio("sound/shuffleaud.mp3");
+var startGm = new Audio("sound/gamestart.mp3");
 var miss = new Audio("sound/miss.mp3");
 var click = new Audio("sound/click.mp3");
 var correct1 = new Audio("sound/correct1.mp3");
@@ -26,12 +26,12 @@ var medicine = ["abdominal", "abdominoplasty", "stomach", "abdominocentesis", "a
  var law = ["contract","consideration","negligence","precedent","infringement","perjury","statute","sue","challenge","void","lewd","detention","parole","misdemeanour","injunction","summons", "writ", "frustration", "bar", "bench", "trespass", "interrogation", "apprehend","magistrate", "marshal", "embezzlement", "malpractice", "fugitive", "torture", "acquitted", "affidavit", "barrister", "solicitor", "chancellor", "equity", "piracy", "grill", "class", "action", "common-law", "marriage", "canon", "law", "boarding", "jurisprudence", "libel", "curfew", "espionage", "treason", "abduction", "autopsy", "impeachment", "collective", "bargaining", "verdict","legislation", "repudiate", "perpetrator", "offender", "culprit", "estoppel", "tenancy", "deed", "surety" ,"clause", "performance", "implied", "trust", "foreclosure", "bankruptcy", "roundup", "security", "interest", "juvenile", "delinquency", "expiration", "convict", "ordinance", "suspended", "sentence", "discovery", "felony", "adjudicate", "arraign", "bail", "assault", "dissent", "non", "compos", "mentis", "fiat", "evict", "aggravated", "refutation", "force", "majeure", "complaint"];
  var economics = ["Asset", "Turnover","Ratio","Bailout","Balance Of Payment","Bank Rate", "Base", "Brexit", "Broad","Money To Reserve","Call","Capacity", "Cost", "Capital","Account","Adequacy", "Market", "Casa", "Catch Up Effect", "Ceteris Paribus", "Clearing", "Price", "Consumer", "Index", "Contagion", "Contractionary", "Policy", "Core","Inflation","Benefit","Analysis","Push", "Countervailing","Duties","Credit","Default", "Swaps","Cross","Elasticity","Demand", "Crowding","Out","Currency", "Deposit", "Deadweight", "Loss", "Debt", "Equity","Deflation","Depreciation","Depression", "Dividend","Signaling","Domestic", "Institutional","Investo","Due Date", "Ease", "Doing", "Business","Exchange","Fair Trade","Fallout","Risk","Gross","Saving", "National Product","Human","Imperfect Competition","Indifference","Curve","Inferior","Goods", "Infrastructure","Investment","Banking", "Invisible","Hand","Labour","Law","Supply","Libor","Liquid","Asset","Liquidity","Trap","Macroeconomics","Marginal","Standing","Facility","Capitalization", "Mark","Mibor","Microeconomics","Monetary","Monopoly","Moral","Hazard","Efficiency", "Payments","Banks Percentage","Point", "Perfect","Phillips","Poverty","Preferences","Ceiling", "Floor","Mechanism","Principle", "Agent","Problem","Privatization","Producer","Production","Gap","Possibility","Profitability","Property","Tax","Proportional","Public","Distribution", "System","Purchasing","Power","Parity","Quantitative","Quantity","Demanded","Supplied","Theory","Rational","Behaviour","Rationing","Cycle","Economic","Growth"];
  // var animals = ["Aardvark", "Addax". "Adelie Penguin", "Afghan Hound", "African Civet", "Ainu Dog", "Ainu Dog", "Alligator", "American Bulldog", "AngelfisH", "Ant", "Anteater", "Antelope", "Appenzeller Dog", "Arctic Fox", "Arctic Hare", "Arctic Wolf", "Armadillo"]
- // var programming = []
+ var programming = ["Acing","AJAX", "Algorithm", "Angular", "AngularJS", "Array", "Backend", "Blog", "Boolean", "Brace", "Browser", "Bug", "Business", "call", "Class", "Code", "Coding", "Column", "Command", "Console", "Container", "Crash", "Crowdsourcing", "Data", "Database", "Debugging","Decleration", "Design", "Desktop", "Developer", "Directory", "Document", "Error", "Event", "frontend", "getElementById", "Git", "HTML", "Information", "innerHTML", "Input", "Interface", "Internet", "Image", "Itration", "Java", "JavaScript", "JQuary", "Keyboard", "Language", "localStorage", "Logic", "loop", "Lorem", "MapReduce", "Memory", "Modem", "Mouse", "MySQL", "Navigation", "nodeJS", "Notation", "Object", "Operand", "Operator", "Picker", "Pointer", "program", "programming", "Phython", "Quizzes", "Rand", "Random", "Refrence", "React", "Reload", "Resolution", "Return", "Server", "Stack", "startOver", "stream", "Stringify", "Strong", "Style", "Software", "sightlessness", "Square", "Sublime", "Swift", "Tutorial", "Row", "URL", "Value", "Validation"];
 	
 	function countDown()
 	{
 			nof = 3 ; //this determines the number of minutes in our application 
-			engine() ;		
+			engine() ;	
 	}
 	function stopCountDown()
 	{
@@ -277,6 +277,10 @@ var medicine = ["abdominal", "abdominoplasty", "stomach", "abdominocentesis", "a
 		else if(selectedOption == 'economics')
 			{
 				selectedInterestArray = economics;
+			}
+		else if (selectedOption == 'programming')
+			{
+				selectedInterestArray = programming;
 			}		
 	if(d!="")
 	{
@@ -287,7 +291,7 @@ var medicine = ["abdominal", "abdominoplasty", "stomach", "abdominocentesis", "a
 		sword.focus();
 	}
 		else{
-			alert("Enter your name first");}
+		alert("Enter your name first");}
 		click.play();
 
 	}

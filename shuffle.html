@@ -16,11 +16,16 @@
    		background-repeat: no-repeat;
 		background-size: cover;
 		 background-position: right bottom, left top;
-	}			
+	}		
+	.sele 
+	{
+		font-family: 
+	}
+	
 
 </style>
 </head>
-<body onload="gameMusic.play()">
+<body onload=" gameMusic.play()">
 <div id="background">
 	<div class="container">
 <div class="row" style="display:none" id="ro">
@@ -70,27 +75,20 @@
 	</div>
 	<form name="f1" action="#" onSubmit="javasript: return false">
 	<div class="col-md-6" id="col">
-		<br><br><br>
-		Select an area of interest: 
+		
+		<h1 id="sele"><span style="background: linear-gradient(to top left, #33ccff 0%, #cc0066 100%); color:#fff "><strong >Select an area of interest:</strong></span></h1> 
+
 		<input type="radio" name="interest" value="soccer" id="interest" checked  />Soccer 
-		<input type="radio" name="interest" id="interest" value="politics">Politics 
-
+		<input class="dew" type="radio" name="interest" id="interest" value="politics">Politics 
 		<input type="radio" name="interest" value="education" />Education 
-
 		<input type="radio" name="interest" value="physics" />Physics
-
 		<input type="radio" name="interest" value="medicine" />Medicine
-
 		<input type="radio" name="interest" value="biology">Biology 
-
 		<input type="radio" name="interest" value="chemistry">Chemistry
-
 		<input type="radio" name="interest" value="geography">Geography
-
 		<input type="radio" name="interest" value="law">Law
-
 		<input type="radio" name="interest" value="economics">Economics
-		<br>
+		<input type="radio" name="interest" value="programming">Programming
 		
 		<input type="text" name="" placeholder="enter you name here first" id="v" class="form-control"><br>
 
