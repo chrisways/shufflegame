@@ -287,7 +287,11 @@ var medicine = ["abdominal", "abdominoplasty", "stomach", "abdominocentesis", "a
 		else if(selectedOption == 'economics')
 			{
 				selectedInterestArray = economics;
-			}		
+			}
+			else if(selectedOption == 'Bible')
+			{
+				selectedInterestArray = Bible;
+			}					
 	if(d!="")
 	{
 		$("#ro").slideToggle();
@@ -386,6 +390,9 @@ var medicine = ["abdominal", "abdominoplasty", "stomach", "abdominocentesis", "a
 
 		<input type="radio" name="interest" value="economics">Economics
 		<br>
+		<input type="radio" name="interest" value="Bible">Bible
+		<br>
+		
 		
 		<input type="text" name="" placeholder="enter you name here first" id="v" class="form-control"><br>
 
